@@ -11,6 +11,8 @@ public class CarController : MonoBehaviour
     public float turnSpeed;
     public float maxRotation = 45;
 
+    public float carSpeed;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -25,6 +27,7 @@ public class CarController : MonoBehaviour
     {
         _rb.AddForce(drivingForce * transform.right * Input.GetAxisRaw("Horizontal"), ForceMode.Acceleration);
 
+        //transform.position += Input.GetAxisRaw("Horizontal") * transform.right * drivingForce * Time.deltaTime;
         transform.rotation = Quaternion.Slerp(Quaternion.Euler(transform.eulerAngles), Quaternion.Euler(0, maxRotation * Input.GetAxisRaw("Horizontal"), 0), Time.fixedDeltaTime * turnSpeed * Mathf.Abs(Input.GetAxisRaw("Horizontal")));
     }
 }
