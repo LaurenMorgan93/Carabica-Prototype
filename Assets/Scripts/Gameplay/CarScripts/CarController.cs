@@ -11,7 +11,7 @@ public class CarController : MonoBehaviour
     public float turnSpeed;
     public float maxRotation = 45;
 
-    public float carSpeed;
+    public float travelSpeed;
 
     private void Awake()
     {

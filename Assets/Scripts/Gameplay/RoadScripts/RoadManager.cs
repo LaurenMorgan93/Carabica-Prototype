@@ -13,7 +13,7 @@ public class RoadManager : MonoBehaviour
     {
         var piece = roadPieces[0];
 
-        if (piece.endRoad.position.z <= car.transform.position.z-5)
+        if (piece.endRoad.position.z <= car.transform.position.z-10)
         {
             var roadObj = Instantiate(roadPrefab, roadPieces[roadPieces.Count-1].endRoad.position, roadPrefab.transform.rotation, transform);
 
@@ -31,7 +31,7 @@ public class RoadManager : MonoBehaviour
 
         foreach (var piece in roadPieces)
         {
-            piece.transform.position += -piece.transform.forward * Time.deltaTime * carSpeed;
+            piece.transform.position += -piece.transform.forward * Time.deltaTime * car.travelSpeed;
         }
     }
 }
