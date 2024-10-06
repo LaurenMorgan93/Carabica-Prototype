@@ -27,7 +27,7 @@ public class RoadManager : MonoBehaviour
             {
                 int count = 1 + (int)(chunkSpawnCount / 9);
 
-                roadPieces[roadPieces.Count - 1].SpawnObstacle(obstacles[0], count); 
+                roadPieces[roadPieces.Count - 1].SpawnObstacle(obstacles[0], count);
             }
 
             roadPieces.RemoveAt(0);
