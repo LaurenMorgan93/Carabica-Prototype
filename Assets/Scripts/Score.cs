@@ -19,7 +19,9 @@ public class Score : MonoBehaviour
 
     // Health / Hit tracking
     public int MaxHitPoints = 3; // Changeable in the inspector
-    private int CurrentHitPoints;
+    public int CurrentHitPoints;
+
+    public TextMeshProUGUI HealthDisplayText;
 
     // Game over flag
     private bool IsGameOver = false;
@@ -47,11 +49,13 @@ public class Score : MonoBehaviour
             DistanceTravelled = Mathf.Round(DistanceTravelled * 10f) / 10f;
 
             // Update the display text
-            DistanceDisplayText.text = DistanceTravelled + " KMs";
+            DistanceDisplayText.text = "Distance Travelled: " + DistanceTravelled + " KMs";
 
             // Reset elapsed time
             elapsedDistanceUpdateTime = 0f;
         }
+
+        HealthDisplayText.text = "Health Points Left: " + CurrentHitPoints;
     }
 
     public void SaveScore()
@@ -77,6 +81,8 @@ public class Score : MonoBehaviour
 
     private void GameOver()
     {
+        print("aaaa");
+
         // Set the game over flag
         IsGameOver = true;
         SaveScore(); // save the distance travelled to pps

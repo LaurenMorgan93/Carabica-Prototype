@@ -12,6 +12,7 @@ public class CarController : MonoBehaviour
     public float maxRotation = 45;
 
     public float travelSpeed;
+    public float travelSpeedAcceleration = 1;
 
     public float awfulyHotCoffeePotSpeed;
 
@@ -19,6 +20,8 @@ public class CarController : MonoBehaviour
     public Rigidbody potRB;
 
     public Vector2 randomForceRange;
+
+    public Score scoreManager;
 
     private void Awake()
     {
@@ -39,5 +42,11 @@ public class CarController : MonoBehaviour
 
         //transform.position += Input.GetAxisRaw("Horizontal") * transform.right * drivingForce * Time.deltaTime;
         transform.rotation = Quaternion.Slerp(Quaternion.Euler(transform.eulerAngles), Quaternion.Euler(0, maxRotation * Input.GetAxisRaw("Horizontal"), 0), Time.fixedDeltaTime * turnSpeed * Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+    }
+
+    private void Update()
+    {
+        travelSpeed += travelSpeedAcceleration * Time.deltaTime;
+        scoreManager.SpeedMultiplier = travelSpeed/10;
     }
 }
