@@ -9,6 +9,10 @@ public class RoadManager : MonoBehaviour
     public GameObject roadPrefab;
     public List<RoadPiece> roadPieces;
 
+    public int chunkSpawnCount;
+
+    public List<GameObject> obstacles;
+
     private void CheckFirstChunk()
     {
         var piece = roadPieces[0];
@@ -19,9 +23,18 @@ public class RoadManager : MonoBehaviour
 
             roadPieces.Add(roadObj.GetComponent<RoadPiece>());
 
+            if(chunkSpawnCount % 3 == 0)
+            {
+                int count = 1 + (int)(chunkSpawnCount / 9);
+
+                roadPieces[roadPieces.Count - 1].SpawnObstacle(obstacles[0], count); 
+            }
+
             roadPieces.RemoveAt(0);
 
             Destroy(piece.gameObject);
+
+            chunkSpawnCount++;
         }
     } 
 

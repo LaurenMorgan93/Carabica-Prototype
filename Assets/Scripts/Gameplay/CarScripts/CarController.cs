@@ -18,6 +18,8 @@ public class CarController : MonoBehaviour
     public Transform awfulyHotCoffeePot;
     public Rigidbody potRB;
 
+    public Vector2 randomForceRange;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -31,7 +33,7 @@ public class CarController : MonoBehaviour
     private void NonWheelApproach()
     {
         _rb.AddForce(drivingForce * transform.right * Input.GetAxisRaw("Horizontal"), ForceMode.Acceleration);
-        potRB.AddForce(drivingForce * transform.right * Input.GetAxisRaw("Horizontal"), ForceMode.Impulse);
+        potRB.AddForce(Random.Range(randomForceRange.x, randomForceRange.y) * transform.right * Input.GetAxisRaw("Horizontal"), ForceMode.Impulse);
 
         awfulyHotCoffeePot.transform.position = new Vector3(awfulyHotCoffeePot.transform.position.x + Input.GetAxisRaw("Horizontal") * Time.deltaTime * awfulyHotCoffeePotSpeed, awfulyHotCoffeePot.transform.position.y, awfulyHotCoffeePot.transform.position.z);
 
