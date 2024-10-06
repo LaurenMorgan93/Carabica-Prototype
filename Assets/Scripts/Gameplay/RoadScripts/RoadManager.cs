@@ -13,6 +13,8 @@ public class RoadManager : MonoBehaviour
 
     public List<GameObject> obstacles;
 
+    public Transform tower;
+
     private void CheckFirstChunk()
     {
         var piece = roadPieces[0];
@@ -46,5 +48,8 @@ public class RoadManager : MonoBehaviour
         {
             piece.transform.position += -piece.transform.forward * Time.deltaTime * car.travelSpeed;
         }
+
+        tower.position += Vector3.up * car.travelSpeed / 10 * Time.deltaTime;
+        tower.localScale += Vector3.one * Time.deltaTime * car.travelSpeed/10 * Time.deltaTime;
     }
 }
