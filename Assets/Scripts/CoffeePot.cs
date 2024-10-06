@@ -27,7 +27,7 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
         if (coffeeLevel < maxCoffeeLevel)
         {
             coffeeLevel += 0.1f; // Adjust this to change how quickly the pot fills
-            Debug.Log("Coffee Level: " + coffeeLevel);
+           // Debug.Log("Coffee Level: " + coffeeLevel);
             coffeeMeter.value = coffeeLevel;
         }
 
