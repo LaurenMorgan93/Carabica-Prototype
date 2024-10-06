@@ -9,6 +9,12 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
     public float maxCoffeeLevel = 100f; // Maximum capacity of the coffee pot
 
     public Slider coffeeMeter;
+
+    public float coffeeGainPerParticle = 0.1f;
+
+    public SpriteRenderer cupSprite;
+
+    public Sprite[] cupSprites;
     
     private void OnParticleCollision(GameObject other)
     {
@@ -19,6 +25,13 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
         }
     }
 
+    private int FillStage(int ammountOfStages, float maxCoffee, float currentCoffee)
+    {
+        float stageDiv = maxCoffee / ammountOfStages;
+
+        return (int) (currentCoffee / stageDiv);
+    }
+
  
 
     private void FillCoffee()
@@ -26,9 +39,10 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
         // Increase coffee level 
         if (coffeeLevel < maxCoffeeLevel)
         {
-            coffeeLevel += 0.1f; // Adjust this to change how quickly the pot fills
+            coffeeLevel += coffeeGainPerParticle; // Adjust this to change how quickly the pot fills
            // Debug.Log("Coffee Level: " + coffeeLevel);
             coffeeMeter.value = coffeeLevel;
+            cupSprite.sprite = cupSprites[FillStage(cupSprites.Length, maxCoffeeLevel, coffeeLevel)];
         }
 
         if (coffeeLevel >= maxCoffeeLevel)
@@ -45,5 +59,6 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
         // empty the coffee pot and start again
         coffeeLevel = 0f;
         coffeeMeter.value = coffeeLevel;
+        cupSprite.sprite = cupSprites[FillStage(cupSprites.Length, maxCoffeeLevel, coffeeLevel)];
     }
 }

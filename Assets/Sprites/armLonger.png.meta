@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 960f8f6bd669a8042820d92113a4ae2e
+guid: 55f37520fb1917c4b845091eea1f4a12
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,22 +97,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CubeL_0
+      name: armLonger_0
       rect:
         serializedVersion: 2
-        x: 1010
-        y: 698
-        width: 117
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 213
+        y: 117
+        width: 215
+        height: 545
+      alignment: 9
+      pivot: {x: 0.71851027, y: 0.97617555}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 960697a42ba64e64cbf828dd368f011a
-      internalID: -525129032
+      spriteID: 622982d3a81547c48851a2b7617eb926
+      internalID: 971887098
       vertices: []
       indices: 
       edges: []
@@ -120,7 +120,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 7329bb41d06d20c4a8b7c23a379842e4
     internalID: 0
     vertices: []
     indices: 
@@ -128,7 +128,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CubeL_0: -525129032
+      armLonger_0: 971887098
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
