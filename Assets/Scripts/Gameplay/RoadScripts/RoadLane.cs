@@ -11,12 +11,12 @@ public class RoadLane : MonoBehaviour
 
     public float spawnInteractavleCheckRadius;
 
-    public bool CheckForNearbyInteractables(Vector3 pos)
+    private bool CheckForNearbyInteractables(Vector3 pos)
     {
         return Physics.CheckSphere(pos, spawnInteractavleCheckRadius, LayerMask.GetMask("Obstacles", "Interactables"));
     }
 
-    public Vector3 CreateSpawnPosition()
+    private Vector3 CreateSpawnPosition()
     {
         return new Vector3(transform.position.x, 0, Random.Range(bottom.position.z, top.position.z));
     }
