@@ -6,6 +6,8 @@ public class Score : MonoBehaviour
 
 // this script handles the player's hitpoints, and their score (distance travelled)
 {
+
+    public ScreenShake shakeScript;
     public float DistanceTravelled { get; private set; } = 0f; 
 
     // The speed that the distance counter increases
@@ -73,6 +75,7 @@ public class Score : MonoBehaviour
     {
         if (IsGameOver) return;
 
+        shakeScript.TriggerShake(shakeScript.shakeTime, shakeScript.shakeStrength); // on collision shake the screen 
         // Decrease current hit points
         CurrentHitPoints--;
 
