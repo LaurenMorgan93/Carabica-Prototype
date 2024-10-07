@@ -42,7 +42,7 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
             coffeeLevel += coffeeGainPerParticle; // Adjust this to change how quickly the pot fills
            // Debug.Log("Coffee Level: " + coffeeLevel);
             coffeeMeter.value = coffeeLevel;
-            cupSprite.sprite = cupSprites[FillStage(cupSprites.Length, maxCoffeeLevel, coffeeLevel)];
+            cupSprite.sprite = cupSprites[FillStage(cupSprites.Length, maxCoffeeLevel, coffeeLevel)-1];
         }
 
         if (coffeeLevel >= maxCoffeeLevel)
