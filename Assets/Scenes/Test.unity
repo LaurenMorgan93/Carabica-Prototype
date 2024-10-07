@@ -349,6 +349,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5241150620955248047, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241150620955248047, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
       propertyPath: orthographic size
       value: 5.25
       objectReference: {fileID: 0}
@@ -1336,7 +1340,12 @@ MonoBehaviour:
   - {fileID: 1849299860, guid: 9f7fc50bb04765248976c4f114cda759, type: 3}
   - {fileID: 1879341311, guid: dc6b4a75a3eac25498b5e651ae225a38, type: 3}
   - {fileID: 1928132161, guid: 29e79fe0ef27fc54cbdcbffa070dcaec, type: 3}
+  dashBoardStatusIcons:
+  - {fileID: 21300000, guid: ea69201bbecaf4e43a827e58b4bbd495, type: 3}
+  - {fileID: 21300000, guid: 3b200290fef421b4096e1627f5692540, type: 3}
+  - {fileID: 21300000, guid: c13ccdaa32bd0f045970352f124d81a0, type: 3}
   healthReflectionRend: {fileID: 363964746}
+  dashBoardRend: {fileID: 1760919251}
 --- !u!4 &946081871
 Transform:
   m_ObjectHideFlags: 0
@@ -1815,6 +1824,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ff374fe2a16524a868bd332fee737d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &1760919251 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5603385103262028330, guid: 70a8d8357678c174e9440ff6e63384be, type: 3}
+  m_PrefabInstance: {fileID: 174282300}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1762960589
 GameObject:
   m_ObjectHideFlags: 0

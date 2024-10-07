@@ -23,7 +23,9 @@ public class Score : MonoBehaviour
 
     public TextMeshProUGUI HealthDisplayText;
     public Sprite[] healthIcons;
+    public Sprite[] dashBoardStatusIcons;
     public SpriteRenderer healthReflectionRend;
+    public SpriteRenderer dashBoardRend;
 
     // Game over flag
     private bool IsGameOver = false;
@@ -60,6 +62,7 @@ public class Score : MonoBehaviour
         HealthDisplayText.text = "Health Points Left: " + CurrentHitPoints;
 
         healthReflectionRend.sprite = healthIcons[CurrentHitPoints - 1];
+        dashBoardRend.sprite = dashBoardStatusIcons[CurrentHitPoints - 1];
     }
 
     public void SaveScore()
