@@ -25,20 +25,18 @@ public class RoadManager : MonoBehaviour
 
             roadPieces.Add(roadObj.GetComponent<RoadPiece>());
 
-            if(chunkSpawnCount % 3 == 0)
-            {
-                int count = 1 + (int)(chunkSpawnCount / 9);
-
-                roadPieces[roadPieces.Count - 1].SpawnObstacle(obstacles[0], count);
-            }
-
             roadPieces.RemoveAt(0);
 
             Destroy(piece.gameObject);
 
             chunkSpawnCount++;
         }
-    } 
+    }
+
+    private void ObstacleGenerationLogic()
+    {
+
+    }
 
     private void Update()
     {

@@ -11,7 +11,7 @@ public class ArmFollow : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         transform.position = ArmPivot.position;
     }

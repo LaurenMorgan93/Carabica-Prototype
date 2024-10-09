@@ -10,6 +10,8 @@ public class CarCollision : MonoBehaviour
     public Score scoreManager;
     private GameObject _lastCollidedObject;
 
+    public float cupPropulsionForce;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -22,6 +24,8 @@ public class CarCollision : MonoBehaviour
 
         if (collision.collider.gameObject != _lastCollidedObject && (collision.collider.CompareTag("Obstacle") || collision.collider.CompareTag("Wall")))
         {
+            _carController.potRB.AddExplosionForce(cupPropulsionForce * 1000, _carController.awfulyHotCoffeePot.position - Vector3.down*2, 10, 40);
+
             _carController.travelSpeed /= 2;
 
             scoreManager.TakeDamage();
