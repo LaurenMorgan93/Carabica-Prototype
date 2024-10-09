@@ -57,7 +57,13 @@ public class Score : MonoBehaviour
             DistanceTravelled = Mathf.Round(DistanceTravelled * 10f) / 10f;
 
             // Update the display text
-            DistanceDisplayText.text = DistanceTravelled + " KMs";
+            string pointZero = "";
+
+            if(DistanceTravelled % 1 == 0)
+            {
+                pointZero = ".0";
+            }
+            DistanceDisplayText.text = DistanceTravelled + pointZero + " KMs";
 
             // Reset elapsed time
             elapsedDistanceUpdateTime = 0f;

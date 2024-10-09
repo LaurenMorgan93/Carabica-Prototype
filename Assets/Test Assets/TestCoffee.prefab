@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 7976560848580418671}
   - component: {fileID: 2584839689945364224}
   - component: {fileID: 5980199077508536530}
+  - component: {fileID: 5027213303691459273}
   m_Layer: 7
   m_Name: CoffeePot
   m_TagString: Untagged
@@ -229,10 +230,33 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
+--- !u!136 &5027213303691459273
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72782002919776698}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2808382
+  m_Height: 1.4805433
+  m_Direction: 0
+  m_Center: {x: -0.018028397, y: -0.51137775, z: -0.0000000681196}
 --- !u!1 &222783144577114806
 GameObject:
   m_ObjectHideFlags: 0
