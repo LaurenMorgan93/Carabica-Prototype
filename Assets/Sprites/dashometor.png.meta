@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f4cec872cb45fcf48a9a0121d9d36ada
+guid: 96ddcc8d9082ae641a64e6541664e62b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Asleep_0
+      name: DashScreen
       rect:
         serializedVersion: 2
-        x: 0
-        y: 122
-        width: 496
-        height: 338
+        x: 64
+        y: 774
+        width: 679
+        height: 255
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6127a77b1f8fe343b4644b4fc3525ad
-      internalID: -1634725679
+      spriteID: b12a38ae15b1a1b4e80fad5911956b52
+      internalID: -585562039
       vertices: []
       indices: 
       edges: []
@@ -120,7 +120,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: dedd786594d25204aab0667a80839a30
+    spriteID: d7fc1ac0d84c3494c8fa07cd0a9f1d29
     internalID: 0
     vertices: []
     indices: 
@@ -128,7 +128,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Asleep_0: -1634725679
+      DashScreen: -585562039
+      dashometor_0: -1686144013
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
