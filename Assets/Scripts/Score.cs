@@ -1,13 +1,15 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Security.Cryptography.X509Certificates;
+using System.Linq;
 
 public class Score : MonoBehaviour
 
 // this script handles the player's hitpoints, and their score (distance travelled)
 {
 
-    public ScreenShake shakeScript;
+    public ScreenShake[] shakeCamScripts;
     public float DistanceTravelled { get; private set; } = 0f; 
 
     // The speed that the distance counter increases
@@ -78,7 +80,10 @@ public class Score : MonoBehaviour
     {
         if (IsGameOver) return;
 
-        shakeScript.TriggerShake(shakeScript.shakeTime, shakeScript.shakeStrength); // on collision shake the screen 
+        foreach(var shakeCam in shakeCamScripts)
+        {
+            shakeCam.TriggerShake(shakeCam.shakeTime, shakeCam.shakeStrength);
+        }
         // Decrease current hit points
         CurrentHitPoints--;
 
