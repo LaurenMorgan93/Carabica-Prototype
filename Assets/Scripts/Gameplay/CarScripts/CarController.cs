@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    static public CarController instance;
+
     private Rigidbody _rb;
 
     public float drivingForce;
@@ -26,6 +28,7 @@ public class CarController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        instance = this;
     }
 
     private void FixedUpdate()
@@ -36,7 +39,8 @@ public class CarController : MonoBehaviour
     private void NonWheelApproach()
     {
         _rb.AddForce(drivingForce * transform.right * Input.GetAxisRaw("Horizontal"), ForceMode.Acceleration);
-        potRB.AddForce(Random.Range(randomForceRange.x, randomForceRange.y) * transform.right * Input.GetAxisRaw("Horizontal"), ForceMode.Impulse);
+        potRB.AddForce(Random.Range(randomForceRange.x, randomForceRange.y) * awfulyHotCoffeePot.right * Input.GetAxisRaw("Horizontal"), ForceMode.Impulse);
+        potRB.AddForce(Random.Range(randomForceRange.x/2, randomForceRange.y/2) * awfulyHotCoffeePot.forward * Input.GetAxisRaw("Horizontal"), ForceMode.Impulse);
 
         awfulyHotCoffeePot.transform.position = new Vector3(awfulyHotCoffeePot.transform.position.x + Input.GetAxisRaw("Horizontal") * Time.deltaTime * awfulyHotCoffeePotSpeed, awfulyHotCoffeePot.transform.position.y, awfulyHotCoffeePot.transform.position.z);
 

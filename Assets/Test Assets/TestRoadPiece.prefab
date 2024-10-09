@@ -113,7 +113,7 @@ MonoBehaviour:
   top: {fileID: 5276839635533579231}
   interactableContainer: {fileID: 4177072402363706722}
   interactables: []
-  spawnInteractavleCheckRadius: 0
+  spawnInteractavleCheckRadius: 2
 --- !u!1 &1892213016863977450
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
   top: {fileID: 1735201948762303884}
   interactableContainer: {fileID: 9168484479496709352}
   interactables: []
-  spawnInteractavleCheckRadius: 0
+  spawnInteractavleCheckRadius: 2
 --- !u!1 &2795161201946069667
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +384,7 @@ MonoBehaviour:
   top: {fileID: 7772219459674291137}
   interactableContainer: {fileID: 1397167575486005407}
   interactables: []
-  spawnInteractavleCheckRadius: 0
+  spawnInteractavleCheckRadius: 2
 --- !u!1 &3398138507872223773
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,7 +954,7 @@ MonoBehaviour:
   top: {fileID: 8402211010866591728}
   interactableContainer: {fileID: 3613060332746481977}
   interactables: []
-  spawnInteractavleCheckRadius: 0
+  spawnInteractavleCheckRadius: 2
 --- !u!1 &9126802718883369368
 GameObject:
   m_ObjectHideFlags: 0
