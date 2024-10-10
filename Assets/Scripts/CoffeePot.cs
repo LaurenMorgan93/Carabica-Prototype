@@ -15,6 +15,8 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
     public SpriteRenderer cupSprite;
     public Sprite[] cupSprites;
 
+    public AnimationHandlerScript animHandleScript;
+
     // sleepiness variables 
     public float sleepStatus = 100; // 100 = awake, 0 = asleep
     public float sleepDrainRate; // the rate that you get sleepy without DRINKING coffee. You will continue to get sleepy while filling the coffee cup. 
@@ -55,7 +57,9 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
         if (coffeeLevel >= maxCoffeeLevel)
         {
             // if you fill the coffeee cup , call the drinking coffee logic here 
-            EmptyCoffee();
+            animHandleScript.TriggerCoffeeAnim();
+            
+            //EmptyCoffee();
         }
     }
 
