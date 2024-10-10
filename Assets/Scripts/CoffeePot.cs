@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -5,16 +6,21 @@ using Unity.VisualScripting;
 
 public class CoffeePot : MonoBehaviour  // this script is attached to the coffee pot object
 {
+    //coffee variables
     public float coffeeLevel = 0; // Current coffee level 
     public float maxCoffeeLevel = 100f; // Maximum capacity of the coffee pot
-
     public Slider coffeeMeter;
-
     public float coffeeGainPerParticle = 0.1f;
-
     public SpriteRenderer cupSprite;
-
     public Sprite[] cupSprites;
+
+    // sleepiness variables 
+    public int sleepStatus = 100; // 100 = awake, 0 = asleep
+    public int sleepDrainRate; // the rate that you get sleepy without DRINKING coffee. You will continue to get sleepy while filling the coffee cup. 
+    void Start()
+    {
+        InvokeRepeating("ManageSleepStatus", 1f, 1f ); // begin repeating the function to make the player sleepy 
+    }
     
     private void OnParticleCollision(GameObject other)
     {
@@ -47,18 +53,32 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
 
         if (coffeeLevel >= maxCoffeeLevel)
         {
-            // drinking coffeee logic // reset the meter
+            // if you fill the coffeee cup , call the drinking coffee logic here 
             EmptyCoffee();
         }
     }
 
     public void EmptyCoffee()
     {
-        // enter drinking logic here
+        // reset sleepiness here 
+        sleepStatus = 100;
         
         // empty the coffee pot and start again
         coffeeLevel = 0f;
         coffeeMeter.value = coffeeLevel;
         cupSprite.sprite = cupSprites[FillStage(cupSprites.Length, maxCoffeeLevel, coffeeLevel)];
+    }
+
+    public  void ManageSleepStatus() //this function is set to repeat in Start
+    {
+        if (sleepStatus > 0)
+        {
+            // drain the sleepStatus (100 = awake 0= asleep)
+            sleepStatus -= sleepDrainRate; // your sleep level is drained by the sleep drain rate until you drink coffee 
+        
+            // add logic here to update the eyes closing based on current sleep level 
+        }
+
+      
     }
 }
