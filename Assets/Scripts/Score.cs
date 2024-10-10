@@ -71,8 +71,12 @@ public class Score : MonoBehaviour
 
         HealthDisplayText.text = "Health Points Left: " + CurrentHitPoints;
 
-        healthReflectionRend.sprite = healthIcons[CurrentHitPoints - 1];
-        dashBoardRend.sprite = dashBoardStatusIcons[CurrentHitPoints - 1];
+        int healthId = (int) Mathf.Ceil((float) CurrentHitPoints/(float) (MaxHitPoints/healthIcons.Length));
+
+        Debug.Log(MaxHitPoints/healthIcons.Length);
+
+        healthReflectionRend.sprite = healthIcons[healthId - 1];
+        dashBoardRend.sprite = dashBoardStatusIcons[healthId - 1];
     }
 
     public void SaveScore()

@@ -1615,7 +1615,7 @@ MonoBehaviour:
   - {fileID: 174282301}
   - {fileID: 1851610008}
   DistanceDisplayText: {fileID: 1834995239}
-  MaxHitPoints: 3
+  MaxHitPoints: 6
   CurrentHitPoints: 0
   HealthDisplayText: {fileID: 1861622371}
   healthIcons:
