@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,11 +16,11 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
     public Sprite[] cupSprites;
 
     // sleepiness variables 
-    public int sleepStatus = 100; // 100 = awake, 0 = asleep
-    public int sleepDrainRate; // the rate that you get sleepy without DRINKING coffee. You will continue to get sleepy while filling the coffee cup. 
+    public float sleepStatus = 100; // 100 = awake, 0 = asleep
+    public float sleepDrainRate; // the rate that you get sleepy without DRINKING coffee. You will continue to get sleepy while filling the coffee cup. 
     void Start()
     {
-        InvokeRepeating("ManageSleepStatus", 1f, 1f ); // begin repeating the function to make the player sleepy 
+        
     }
     
     private void OnParticleCollision(GameObject other)
@@ -48,7 +49,7 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
             coffeeLevel += coffeeGainPerParticle; // Adjust this to change how quickly the pot fills
            // Debug.Log("Coffee Level: " + coffeeLevel);
             coffeeMeter.value = coffeeLevel;
-            cupSprite.sprite = cupSprites[FillStage(cupSprites.Length, maxCoffeeLevel, coffeeLevel)-1];
+            
         }
 
         if (coffeeLevel >= maxCoffeeLevel)
@@ -66,7 +67,6 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
         // empty the coffee pot and start again
         coffeeLevel = 0f;
         coffeeMeter.value = coffeeLevel;
-        cupSprite.sprite = cupSprites[FillStage(cupSprites.Length, maxCoffeeLevel, coffeeLevel)];
     }
 
     public  void ManageSleepStatus() //this function is set to repeat in Start
@@ -78,7 +78,11 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
         
             // add logic here to update the eyes closing based on current sleep level 
         }
+    }
 
-      
+    private void FixedUpdate()
+    {
+        ManageSleepStatus();
+        cupSprite.sprite = cupSprites[FillStage(cupSprites.Length, maxCoffeeLevel, coffeeLevel)];
     }
 }

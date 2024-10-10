@@ -364,6 +364,90 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 4.6222
       objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: EndPoint
+      value: 
+      objectReference: {fileID: 1989775982}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidStartPos.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTransforms.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTransforms.Array.data[2]
+      value: 
+      objectReference: {fileID: 1611573812}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[1].time
+      value: 0.50013196
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[2].time
+      value: 0.84515494
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[3].time
+      value: 1.0000242
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[1].value
+      value: -0.0023584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[2].value
+      value: 0.40127906
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[3].value
+      value: 1.0437675
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[2].inSlope
+      value: 2.5303724
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[3].inSlope
+      value: 8.951049
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[2].outSlope
+      value: 2.5303724
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[3].inWeight
+      value: 0.04477617
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[3].outSlope
+      value: 8.951049
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[2].outWeight
+      value: 0.27082825
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: eyelidTravelCurve.m_Curve.Array.data[3].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
     - target: {fileID: 1714243984377049014, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
       propertyPath: ShapeModule.angle
       value: 0
@@ -558,7 +642,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5635274902667096615, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
       propertyPath: sleepDrainRate
-      value: 2
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5635274902667096615, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: coffeeGainPerParticle
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5922267439227905665, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
       propertyPath: m_Enabled
@@ -1965,6 +2053,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568918773}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!224 &1611573812 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 933295715514184773, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+  m_PrefabInstance: {fileID: 107531387}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1728731028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2559,6 +2652,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ff374fe2a16524a868bd332fee737d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1989775982 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2458172613490540209, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+  m_PrefabInstance: {fileID: 107531387}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2002480249
 GameObject:
   m_ObjectHideFlags: 0
