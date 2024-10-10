@@ -390,7 +390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
       propertyPath: eyelidTravelCurve.m_Curve.Array.data[2].time
-      value: 0.84515494
+      value: 0.868111
       objectReference: {fileID: 0}
     - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
       propertyPath: eyelidTravelCurve.m_Curve.Array.data[3].time
@@ -402,7 +402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
       propertyPath: eyelidTravelCurve.m_Curve.Array.data[2].value
-      value: 0.40127906
+      value: 0.3840081
       objectReference: {fileID: 0}
     - target: {fileID: 1651412122826342696, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
       propertyPath: eyelidTravelCurve.m_Curve.Array.data[3].value
@@ -744,6 +744,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestCoffee
       objectReference: {fileID: 0}
+    - target: {fileID: 9124798678413309986, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: coffeePot
+      value: 
+      objectReference: {fileID: 1684332963}
     m_RemovedComponents:
     - {fileID: 3590747638100539388, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
     - {fileID: 8880810197154028088, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
@@ -2059,6 +2063,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 933295715514184773, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
   m_PrefabInstance: {fileID: 107531387}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1684332963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5635274902667096615, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+  m_PrefabInstance: {fileID: 107531387}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cf2b467b534994c8fe42cebeb221ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1728731028
 PrefabInstance:
   m_ObjectHideFlags: 0

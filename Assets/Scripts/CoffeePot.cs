@@ -20,9 +20,16 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
     // sleepiness variables 
     public float sleepStatus = 100; // 100 = awake, 0 = asleep
     public float sleepDrainRate; // the rate that you get sleepy without DRINKING coffee. You will continue to get sleepy while filling the coffee cup. 
-    void Start()
+
+    public Vector3 startPosition;
+    void Awake()
     {
-        
+        startPosition = transform.position;
+    }
+
+    void OnEnable()
+    {
+        transform.position = startPosition;
     }
     
     private void OnParticleCollision(GameObject other)
