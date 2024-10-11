@@ -1659,7 +1659,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   EndPoint: {fileID: 2458172613490540209}
-  lerpSpeed: 0.2
+  lerpSpeed: 0.6
 --- !u!1 &3517542829847998951
 GameObject:
   m_ObjectHideFlags: 0
@@ -2516,6 +2516,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: d7520d49a1764e948a0d25a9e23ede95, type: 3}
+  - {fileID: 8300000, guid: bee5083a264df4b479b8d703a051b73c, type: 3}
+  - {fileID: 8300000, guid: de3587a0ecb5ff146bd55ac24b8bd280, type: 3}
+  - {fileID: 8300000, guid: 4c16c43213e1bf043bc1736dd3591e9d, type: 3}
 --- !u!82 &8260313807958617138
 AudioSource:
   m_ObjectHideFlags: 0

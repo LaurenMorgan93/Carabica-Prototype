@@ -384,6 +384,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8278390804862218662, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: audioClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8278390804862218662, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: audioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: bee5083a264df4b479b8d703a051b73c, type: 3}
     - target: {fileID: 8692189799057813824, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
       propertyPath: m_Name
       value: TestCoffee
