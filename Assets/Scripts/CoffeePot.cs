@@ -45,6 +45,11 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
     {
         float stageDiv = maxCoffee / ammountOfStages;
 
+        if (currentCoffee / stageDiv > ammountOfStages)
+        {
+            return ammountOfStages - 1;
+        }
+
         return (int) (currentCoffee / stageDiv);
     }
 
