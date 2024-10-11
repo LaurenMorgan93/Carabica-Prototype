@@ -23,7 +23,11 @@ public class RoadPiece : MonoBehaviour
 
                 initialCount++;
             }
+
+            return;
         }
+
+        roadLanes[laneID].CreateObjectInLane(obstacle);
     }
 
     public void SpawnPowerup(GameObject powerupPrefab, int laneID =-1)

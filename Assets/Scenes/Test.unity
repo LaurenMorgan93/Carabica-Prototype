@@ -1809,6 +1809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2bef7cc78f17c94c8849cf5d589f63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreManager: {fileID: 946081870}
   car: {fileID: 2146374714}
   roadPrefab: {fileID: 8054843663524393765, guid: d87fbeabf3f9a7e42a52e975273d07ed, type: 3}
   roadPieces:
@@ -1824,9 +1825,17 @@ MonoBehaviour:
   - {fileID: 1747073017}
   - {fileID: 1766752117}
   - {fileID: 1793616966}
+  chunkRateUpgradeDistance: 15
+  minObstacleChunkRate: 3
+  maxObstacleChunkRate: 10
   chunkSpawnCount: 0
-  obstacles:
+  obstacleIncreseLevel: 30
+  maxObstacleChunkCount: 10
+  staticObstacles:
   - {fileID: 4349803460081610502, guid: 469887b4cfedef144a5c3fc6ac2e22d8, type: 3}
+  movingObstacles:
+  - {fileID: 4349803460081610502, guid: 469887b4cfedef144a5c3fc6ac2e22d8, type: 3}
+  powerups: []
   tower: {fileID: 2014697411}
 --- !u!4 &1404428967 stripped
 Transform:
