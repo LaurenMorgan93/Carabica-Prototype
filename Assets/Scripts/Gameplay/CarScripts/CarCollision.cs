@@ -12,10 +12,19 @@ public class CarCollision : MonoBehaviour
 
     public float cupPropulsionForce;
 
+    public float collisionSleepWakeUp = 5f;
+
+    private CoffeePot _coffeePot;
+
+    private CarSoundManager _carSound;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _carController = GetComponent<CarController>();
+        _carSound = GetComponent<CarSoundManager>();
+
+        _coffeePot = FindObjectOfType<CoffeePot>().GetComponent<CoffeePot>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -30,9 +39,13 @@ public class CarCollision : MonoBehaviour
 
             scoreManager.TakeDamage();
 
+            _coffeePot.sleepStatus += collisionSleepWakeUp;
+
             _lastCollidedObject = collision.collider.gameObject;
 
-            print(_lastCollidedObject);
+            //print(_lastCollidedObject);
+            
+            _carSound.PlayCrashEffect();
         }
     }
 }
