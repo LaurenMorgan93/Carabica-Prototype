@@ -8,6 +8,7 @@ public class AirFreshenerController : MonoBehaviour
     [SerializeField] private float inputForce;
     // List of dice, add more if you want
     [SerializeField] private List<Rigidbody2D> dice;
+    [SerializeField] private List<Rigidbody> dice3d;
     private float _currentMovement;
 
     // Debug function for when not connected to main input system
@@ -29,5 +30,8 @@ public class AirFreshenerController : MonoBehaviour
         // For each dice apply a force, this will be effected by the hinge joint to constrain the movement
         dice.ForEach(die => die.AddForce(new Vector2(_currentMovement * inputForce * 
                                                      Random.Range(-1, -2.3f), 0f)));
+        
+        dice3d.ForEach(die => die.AddForce(new Vector3(_currentMovement * inputForce * 
+                                                       Random.Range(-1, -2.3f), 0f, 0f)));
     }
 }
