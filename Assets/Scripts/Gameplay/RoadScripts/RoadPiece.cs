@@ -32,6 +32,8 @@ public class RoadPiece : MonoBehaviour
 
     public void SpawnPowerup(GameObject powerupPrefab, int laneID =-1)
     {
+        RoadManager.instance.currentPowerupChunk = this;
 
+        roadLanes[laneID].CreateObjectInLane(powerupPrefab);
     }
 }

@@ -1725,8 +1725,11 @@ MonoBehaviour:
   - {fileID: 4349803460081610502, guid: 469887b4cfedef144a5c3fc6ac2e22d8, type: 3}
   movingObstacles:
   - {fileID: 4349803460081610502, guid: 469887b4cfedef144a5c3fc6ac2e22d8, type: 3}
-  powerups: []
+  powerups:
+  - {fileID: 7472198241344921632, guid: b8e85f929e67a42428d9bb372f333ab8, type: 3}
+  - {fileID: 7472198241344921632, guid: b478eca68d3f5ab4ebd695b2f6382aed, type: 3}
   tower: {fileID: 2014697411}
+  currentPowerupChunk: {fileID: 0}
 --- !u!4 &1404428967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3761567269792919748, guid: d87fbeabf3f9a7e42a52e975273d07ed, type: 3}

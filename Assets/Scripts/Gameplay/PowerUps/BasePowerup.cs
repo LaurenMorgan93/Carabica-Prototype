@@ -4,9 +4,21 @@ using UnityEngine;
 
 public class BasePowerup : MonoBehaviour
 {
+    public bool isBeer;
     public float effectPower;
 
-    public virtual void Effect() { }
+    public void Effect()
+    {
+        if (isBeer)
+        {
+            Score.instance.CurrentHitPoints++;
+        } else
+        {
+
+        }
+
+        Destroy(this.gameObject);
+    }
 
     private void OnTriggerEnter(Collider other)
     {

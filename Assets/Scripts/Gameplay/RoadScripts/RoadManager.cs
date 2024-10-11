@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RoadManager : MonoBehaviour
 {
+    static public RoadManager instance;
+
     public Score scoreManager;
 
     public CarController car;
@@ -28,6 +30,8 @@ public class RoadManager : MonoBehaviour
 
     private int _lastSpawnedPowerup = -1;
 
+    public RoadPiece currentPowerupChunk = null;
+
     private void CheckFirstChunk()
     {
         var piece = roadPieces[0];
@@ -39,7 +43,7 @@ public class RoadManager : MonoBehaviour
             roadPieces.Add(roadObj.GetComponent<RoadPiece>());
             roadPieces.RemoveAt(0);
 
-            GenerationLogic(roadObj.GetComponent<RoadPiece>());
+            //GenerationLogic(roadObj.GetComponent<RoadPiece>());
 
             Destroy(piece.gameObject);
 
@@ -49,23 +53,17 @@ public class RoadManager : MonoBehaviour
 
     public int PowerupSpawnCheck()
     {
-        foreach (var piece in roadPieces)
-        {
-            if (piece.GetComponentInChildren<RoadPiece>() != null)
-                return -1;
-        }
-
-        if(_lastSpawnedPowerup != 0 && scoreManager.CurrentHitPoints < scoreManager.MaxHitPoints)
+        if (currentPowerupChunk != null && _lastSpawnedPowerup != 0 && scoreManager.CurrentHitPoints < scoreManager.MaxHitPoints)
         {
             _lastSpawnedPowerup = 0;
             return 0;
         }
 
-        //if (_lastSpawnedPowerup != 1 )
-        //{
-        //    _lastSpawnedPowerup = 1;
-        //    return 1;
-        //}
+        if (currentPowerupChunk != null && _lastSpawnedPowerup != 1 && car.travelSpeed >= 50)
+        {
+            _lastSpawnedPowerup = 1;
+            return 1;
+        }
 
         return -1;
     }
@@ -128,6 +126,8 @@ public class RoadManager : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
+
         _currentObstacleChunkCount = 1;
         _chunkRate = maxObstacleChunkRate;
     }
