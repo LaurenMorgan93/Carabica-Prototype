@@ -20,6 +20,8 @@ public class BasePowerup : MonoBehaviour
     public float nicotineTime;
     public float carSlowDownRate;
 
+    public Animator actionAnimator;
+
     private IEnumerator Effect(bool isBeer)
     {
         CarController.instance.isUnderEffect = true;
@@ -132,6 +134,16 @@ public class BasePowerup : MonoBehaviour
     public void StartEffect(bool isBeer)
     {
         StartCoroutine(Effect(isBeer));
+
+        if(isBeer)
+        {
+            actionAnimator.SetTrigger("Beer");
+        }
+        else
+        {   
+            actionAnimator.SetTrigger("Smoke");
+        }
+
     }
 
     private void Awake()

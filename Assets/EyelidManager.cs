@@ -12,7 +12,7 @@ public class EyelidManager : MonoBehaviour
     public Transform[] eyelidTransforms;
     public Vector3[] eyelidStartPos;
 
-    public Transform EndPoint;
+    public float[] EndPoints;
 
     private float currentSleepLerped;
     public float lerpSpeed = 0.2f;
@@ -20,7 +20,7 @@ public class EyelidManager : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            eyelidStartPos[i] = eyelidTransforms[i].position;
+            eyelidStartPos[i] = eyelidTransforms[i].localPosition;
         }
     }
 
@@ -33,8 +33,8 @@ public class EyelidManager : MonoBehaviour
 
         for (int i = 0; i < 2; i++)
         {
-            eyelidTransforms[i].position = Vector3.Lerp(eyelidStartPos[i], EndPoint.position, currentSleepLerped
-                );
+            eyelidTransforms[i].localPosition = new Vector3(eyelidTransforms[i].position.x, Mathf.Lerp(eyelidStartPos[i].y, EndPoints[i], currentSleepLerped
+                ), 0 );
         }
     }
 }
