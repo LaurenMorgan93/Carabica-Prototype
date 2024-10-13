@@ -57,18 +57,15 @@ public class RoadManager : MonoBehaviour
         {
             if(scoreManager.CurrentHitPoints < scoreManager.MaxHitPoints && _lastSpawnedPowerup != 0)
             {
-                _lastSpawnedPowerup = 0;
                 return 0;
             }
 
             if (_lastSpawnedPowerup != 1 && scoreManager.DistanceTravelled > 15)
             {
-                _lastSpawnedPowerup = 1;
                 return 1;
             }
         }
 
-        _lastSpawnedPowerup = -1;
         return -1;
     }
 
@@ -80,21 +77,25 @@ public class RoadManager : MonoBehaviour
             var generations = _currentObstacleChunkCount;
             int randomLane = 0;
 
-            int powerupCheck = PowerupSpawnCheck();
+            _lastSpawnedPowerup = PowerupSpawnCheck();
 
-            if (powerupCheck >= 0 && chunkSpawnCount != 0)
+            if (_lastSpawnedPowerup >= 0 && chunkSpawnCount != 0)
             {
                 generations--;
 
                 randomLane = Random.Range(0, 4);
 
-                spawnedChunk.SpawnPowerup(powerups[powerupCheck], randomLane);
+                spawnedChunk.SpawnPowerup(powerups[_lastSpawnedPowerup], randomLane);
             }
 
             for (int i = 0; i < generations; ++i)
             {
                 randomLane = Random.Range(0, 4);
-                var isStaticObstacle = true;
+
+                bool isStaticObstacle = true;
+
+                if (scoreManager.DistanceTravelled > 5 && Random.value > 0.5f)
+                    isStaticObstacle = false;
 
                 int prefabChoice = Random.Range(0, staticObstacles.Count);
 
@@ -104,11 +105,15 @@ public class RoadManager : MonoBehaviour
 
                     if (Random.value > 0.5)
                         randomLane = 0;
+                    else
+                        randomLane = 3;
 
-                    randomLane = 3;
+                    Pedestrian pedestrian = spawnedChunk.SpawnObstacle(movingObstacles[prefabChoice], 1, randomLane).GetComponent<Pedestrian>();
 
-                    spawnedChunk.SpawnObstacle(movingObstacles[prefabChoice], 1, randomLane);
-                    
+                    pedestrian.m_RoadPiece = spawnedChunk;
+                    pedestrian.m_Lane = randomLane;
+                    pedestrian.isInitialised = true;
+
                     continue;
                 }
 

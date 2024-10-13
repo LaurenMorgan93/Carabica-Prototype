@@ -48,7 +48,8 @@ public class CarCollision : MonoBehaviour
             if (collision.collider.CompareTag("Obstacle")){
                 var objectRB = _lastCollidedObject.GetComponent<Rigidbody>();
                 objectRB.constraints = RigidbodyConstraints.None;
-                objectRB.AddExplosionForce(5000, _lastCollidedObject.transform.position - _lastCollidedObject.transform.forward*5 - Vector3.up*2, 5, 1);
+                objectRB.AddTorque(_lastCollidedObject.transform.forward * 20);
+                objectRB.AddForce((_lastCollidedObject.transform.forward + _lastCollidedObject.transform.up*2/3) * 2000);
             }
 
             _carSound.PlayCrashEffect();
