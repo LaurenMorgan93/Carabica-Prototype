@@ -21,7 +21,7 @@ public class RoadLane : MonoBehaviour
         return new Vector3(transform.position.x, 0, Random.Range(bottom.position.z, top.position.z));
     }
 
-    public void CreateObjectInLane(GameObject obj)
+    public GameObject CreateObjectInLane(GameObject obj)
     {
         Vector3 spawnPos = CreateSpawnPosition();
 
@@ -30,6 +30,6 @@ public class RoadLane : MonoBehaviour
             spawnPos = CreateSpawnPosition();
         }
 
-        Instantiate(obj, spawnPos, obj.transform.rotation, interactableContainer);
+        return Instantiate(obj, spawnPos, obj.transform.rotation, interactableContainer);
     }
 }
