@@ -133,7 +133,7 @@ public class BasePowerup : MonoBehaviour
 
     public void StartEffect(bool isBeer)
     {
-        StartCoroutine(Effect(isBeer));
+        
 
         if(isBeer)
         {
@@ -144,6 +144,11 @@ public class BasePowerup : MonoBehaviour
             actionAnimator.SetTrigger("Smoke");
         }
 
+    }
+
+    public void StartEffectTrue(bool isBeer)
+    {
+        StartCoroutine(Effect(isBeer));
     }
 
     private void Awake()

@@ -25,6 +25,8 @@ public class CarController : MonoBehaviour
 
     public Score scoreManager;
 
+    public float maxSpeed;
+
     public bool isUnderEffect;
 
     private void Awake()
@@ -52,7 +54,10 @@ public class CarController : MonoBehaviour
 
     private void Update()
     {
-        travelSpeed += travelSpeedAcceleration * Time.deltaTime;
+        if (maxSpeed > travelSpeed)
+        {
+            travelSpeed += travelSpeedAcceleration * Time.deltaTime;
+        }
         scoreManager.SpeedMultiplier = travelSpeed/10;
     }
 }

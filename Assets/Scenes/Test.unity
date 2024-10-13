@@ -344,6 +344,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1851610007}
+    - target: {fileID: 5635274902667096615, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: car
+      value: 
+      objectReference: {fileID: 2146374714}
+    - target: {fileID: 5635274902667096615, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: speedIncrease
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6520090236280335566, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
       propertyPath: m_LocalPosition.x
       value: 600
@@ -2911,12 +2919,13 @@ MonoBehaviour:
   turnSpeed: 1
   maxRotation: 20
   travelSpeed: 20
-  travelSpeedAcceleration: 1
+  travelSpeedAcceleration: 5
   awfulyHotCoffeePotSpeed: 0
   awfulyHotCoffeePot: {fileID: 1407296134}
   potRB: {fileID: 464600154}
   randomForceRange: {x: 3, y: 10}
   scoreManager: {fileID: 946081870}
+  maxSpeed: 30
   isUnderEffect: 0
 --- !u!114 &2146374715
 MonoBehaviour:

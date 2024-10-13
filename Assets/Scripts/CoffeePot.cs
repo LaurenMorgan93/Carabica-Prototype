@@ -15,6 +15,9 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
     public SpriteRenderer cupSprite;
     public Sprite[] cupSprites;
 
+    public CarController car;
+    public float speedIncrease;
+
     public AnimationHandlerScript animHandleScript;
 
     // sleepiness variables 
@@ -83,6 +86,8 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
         // empty the coffee pot and start again
         coffeeLevel = 0f;
         coffeeMeter.value = coffeeLevel;
+
+        car.maxSpeed += speedIncrease;
     }
 
     public  void ManageSleepStatus() //this function is set to repeat in Start

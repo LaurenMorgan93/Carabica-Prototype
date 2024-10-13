@@ -10,4 +10,14 @@ public class EffectUsage : MonoBehaviour
     {
         coffeePot.EmptyCoffee();
     }
+
+    public void StartBeer()
+    {
+        BasePowerup.instance.StartEffectTrue(true);
+    }
+
+    public void StartSmoke()
+    {
+        BasePowerup.instance.StartEffectTrue(false);
+    }
 }
