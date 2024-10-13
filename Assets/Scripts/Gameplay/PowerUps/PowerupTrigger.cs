@@ -11,8 +11,8 @@ public class PowerupTrigger : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             BasePowerup.instance.StartEffect(isBeer);
-        }
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }
