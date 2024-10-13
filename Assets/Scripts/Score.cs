@@ -8,6 +8,8 @@ public class Score : MonoBehaviour
 
 // this script handles the player's hitpoints, and their score (distance travelled)
 {
+    public static Score instance;
+
 
     public ScreenShake[] shakeCamScripts;
     public float DistanceTravelled { get; private set; } = 0f; 
@@ -33,6 +35,11 @@ public class Score : MonoBehaviour
 
     // Game over flag
     private bool IsGameOver = false;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {

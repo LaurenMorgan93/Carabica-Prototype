@@ -25,6 +25,8 @@ public class CarController : MonoBehaviour
 
     public Score scoreManager;
 
+    public bool isUnderEffect;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
