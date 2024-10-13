@@ -18,7 +18,9 @@ public class CarController : MonoBehaviour
 
     public float awfulyHotCoffeePotSpeed;
 
-    public Transform awfulyHotCoffeePot;
+    public Transform awfulyHotCoffeePot, pourPot, potParticles;
+    public Vector2 maxSides;
+
     public Rigidbody potRB;
 
     public Vector2 randomForceRange;
@@ -44,15 +46,35 @@ public class CarController : MonoBehaviour
         potRB.AddForce(Random.Range(randomForceRange.x, randomForceRange.y) * awfulyHotCoffeePot.right * Input.GetAxisRaw("Horizontal"), ForceMode.Impulse);
         potRB.AddForce(Random.Range(randomForceRange.x/5, randomForceRange.y/5) * awfulyHotCoffeePot.forward * -Mathf.Abs( Input.GetAxisRaw("Horizontal")), ForceMode.Impulse);
 
-        awfulyHotCoffeePot.transform.position = new Vector3(awfulyHotCoffeePot.transform.position.x + Input.GetAxisRaw("Horizontal") * Time.deltaTime * awfulyHotCoffeePotSpeed, awfulyHotCoffeePot.transform.position.y, awfulyHotCoffeePot.transform.position.z);
+        print(Input.GetAxisRaw("Horizontal"));
 
-        //transform.position += Input.GetAxisRaw("Horizontal") * transform.right * drivingForce * Time.deltaTime;
-        transform.rotation = Quaternion.Slerp(Quaternion.Euler(transform.eulerAngles), Quaternion.Euler(0, maxRotation * Input.GetAxisRaw("Horizontal"), 0), Time.fixedDeltaTime * turnSpeed * Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+        //awfulyHotCoffeePot.rotation = Quaternion.Euler(Vector3.Lerp(Vector3.zero, new Vector3(0, 0, Input.GetAxisRaw("Horizontal") * 50), Time.deltaTime * awfulyHotCoffeePotSpeed));
+    }
+
+    Vector3 lastMousePos;
+    Vector3 mousePositionDelta;
+
+    private void Start()
+    {
+        mousePositionDelta = Input.mousePosition;
     }
 
     private void Update()
     {
+        mousePositionDelta = Input.mousePosition - lastMousePos;
+
+        print(mousePositionDelta);
+
         travelSpeed += travelSpeedAcceleration * Time.deltaTime;
         scoreManager.SpeedMultiplier = travelSpeed/10;
+
+        //pourPot.eulerAngles = new Vector3(0, 0, Mathf.Clamp(0 + mousePositionDelta.x, -30, 30));
+        potParticles.eulerAngles = new Vector3(0, 0, Mathf.Clamp(potParticles.eulerAngles.z + mousePositionDelta.x/50, -30, 30));
+
+        pourPot.localPosition = new Vector3(Mathf.Clamp(pourPot.localPosition.x + mousePositionDelta.x/100, maxSides.x, maxSides.y), pourPot.localPosition.y, 0);
+
+        //awfulyHotCoffeePot.eulerAngles = new Vector3(0, 0, Mathf.Lerp(0, Input.GetAxisRaw("Horizontal") * 50, Time.deltaTime * awfulyHotCoffeePotSpeed));
+
+        lastMousePos = Input.mousePosition;
     }
 }
