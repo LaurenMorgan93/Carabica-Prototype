@@ -43,7 +43,7 @@ public class RoadManager : MonoBehaviour
             roadPieces.Add(roadObj.GetComponent<RoadPiece>());
             roadPieces.RemoveAt(0);
 
-            //GenerationLogic(roadObj.GetComponent<RoadPiece>());
+            GenerationLogic(roadObj.GetComponent<RoadPiece>());
 
             Destroy(piece.gameObject);
 
@@ -53,18 +53,22 @@ public class RoadManager : MonoBehaviour
 
     public int PowerupSpawnCheck()
     {
-        if (currentPowerupChunk != null && _lastSpawnedPowerup != 0 && scoreManager.CurrentHitPoints < scoreManager.MaxHitPoints)
+        if (!car.isUnderEffect && currentPowerupChunk == null)
         {
-            _lastSpawnedPowerup = 0;
-            return 0;
+            if(scoreManager.CurrentHitPoints < scoreManager.MaxHitPoints && _lastSpawnedPowerup != 0)
+            {
+                _lastSpawnedPowerup = 0;
+                return 0;
+            }
+
+            if (_lastSpawnedPowerup != 1 && scoreManager.DistanceTravelled > 15)
+            {
+                _lastSpawnedPowerup = 1;
+                return 1;
+            }
         }
 
-        if (currentPowerupChunk != null && _lastSpawnedPowerup != 1 && car.travelSpeed >= 50)
-        {
-            _lastSpawnedPowerup = 1;
-            return 1;
-        }
-
+        _lastSpawnedPowerup = -1;
         return -1;
     }
 
@@ -76,13 +80,15 @@ public class RoadManager : MonoBehaviour
             var generations = _currentObstacleChunkCount;
             int randomLane = 0;
 
-            if (PowerupSpawnCheck() > 0)
+            int powerupCheck = PowerupSpawnCheck();
+
+            if (powerupCheck >= 0 && chunkSpawnCount != 0)
             {
                 generations--;
 
                 randomLane = Random.Range(0, 4);
 
-                spawnedChunk.SpawnPowerup(powerups[PowerupSpawnCheck()], randomLane);
+                spawnedChunk.SpawnPowerup(powerups[powerupCheck], randomLane);
             }
 
             for (int i = 0; i < generations; ++i)

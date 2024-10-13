@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7800465491435181825}
   - component: {fileID: 3457185499552533503}
   - component: {fileID: 9065609169969431781}
-  - component: {fileID: 4118754035553921413}
+  - component: {fileID: 7812026514865843603}
   m_Layer: 6
   m_Name: Ciggy
   m_TagString: Untagged
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4118754035553921413
+--- !u!114 &7812026514865843603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,8 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7472198241344921632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8a1f9bad6968c84db62a1d13b2697d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 78ad628ba383b9a43aa6d577b3286ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isBeer: 0
-  effectPower: 0
