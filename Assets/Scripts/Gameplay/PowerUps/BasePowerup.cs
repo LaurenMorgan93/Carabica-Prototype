@@ -46,15 +46,15 @@ public class BasePowerup : MonoBehaviour
 
         if (isBeer)
         {
-            Score.instance.CurrentHitPoints++;
+            Score.instance.CurrentHitPoints += 1;
 
             float defaultCarTurnSpeed = CarController.instance.turnSpeed;
 
             for (float i = 0; i <= enterTime; i += Time.deltaTime)
             {
-                chromaticAberation.intensity.value = Mathf.Lerp(0, 0.5f, i / enterTime);
+                chromaticAberation.intensity.value = Mathf.Lerp(0, 0.2f, i / enterTime);
                 lensDistortion.scale.value = Mathf.Lerp(1, dizzyScale.x, i / enterTime);
-                lensDistortion.intensity.value = Mathf.Lerp(0, -50, i / enterTime);
+                lensDistortion.intensity.value = Mathf.Lerp(0, -20, i / enterTime);
                 CarController.instance.turnSpeed = Mathf.Lerp(defaultCarTurnSpeed, defaultCarTurnSpeed * driftMultiplier, i / enterTime);
 
                 yield return null;
@@ -77,8 +77,8 @@ public class BasePowerup : MonoBehaviour
 
             for (float i = 0; i <= enterTime; i += Time.deltaTime)
             {
-                chromaticAberation.intensity.value = Mathf.Lerp(0.5f, 0, i / enterTime);
-                lensDistortion.intensity.value = Mathf.Lerp(-50, 0, i / enterTime);
+                chromaticAberation.intensity.value = Mathf.Lerp(0.2f, 0, i / enterTime);
+                lensDistortion.intensity.value = Mathf.Lerp(-20, 0, i / enterTime);
                 lensDistortion.intensityY.value = Mathf.Lerp(lastLensYDist, 1, i / enterTime);
                 lensDistortion.intensityX.value = Mathf.Lerp(lastLensXDist, 1, i / enterTime);
                 lensDistortion.scale.value = Mathf.Lerp(lastLensScale, 1, i / enterTime);
@@ -94,14 +94,14 @@ public class BasePowerup : MonoBehaviour
             float lastCarSpeed = CarController.instance.travelSpeed;
             float defaultCarAcceleration = CarController.instance.travelSpeedAcceleration;
 
-            CarController.instance.travelSpeedAcceleration = 0;
+            //CarController.instance.travelSpeedAcceleration = 0;
 
             for (float i = 0; i <= enterTime; i += Time.deltaTime)
             {
-                CarController.instance.travelSpeed = Mathf.Lerp(lastCarSpeed, lastCarSpeed / carSlowDownRate, i/enterTime);
+                //CarController.instance.travelSpeed = Mathf.Lerp(lastCarSpeed, lastCarSpeed / carSlowDownRate, i/enterTime);
 
-                lensDistortion.intensity.value = Mathf.Lerp(0, -70, i / enterTime);
-                chromaticAberation.intensity.value = Mathf.Lerp(0, 0.5f, i / enterTime);
+                lensDistortion.intensity.value = Mathf.Lerp(0, -20, i / enterTime);
+                chromaticAberation.intensity.value = Mathf.Lerp(0, 0.1f, i / enterTime);
 
                 yield return null;
             }
@@ -110,21 +110,21 @@ public class BasePowerup : MonoBehaviour
 
             print("done");
 
-            CarController.instance.travelSpeedAcceleration = defaultCarAcceleration/carSlowDownRate;
+            CarController.instance.maxSpeed -= carSlowDownRate;
 
             yield return new WaitForSeconds(nicotineTime);
 
             for (float i = 0; i <= enterTime; i += Time.deltaTime)
             {
-                CarController.instance.travelSpeed = Mathf.Lerp(lastCarSpeed/carSlowDownRate, lastCarSpeed, i/enterTime);
+                //CarController.instance.travelSpeed = Mathf.Lerp(lastCarSpeed/carSlowDownRate, lastCarSpeed, i/enterTime);
 
-                lensDistortion.intensity.value = Mathf.Lerp(-70, 0, i / enterTime);
-                chromaticAberation.intensity.value = Mathf.Lerp(0.5f, 0, i / enterTime);
+                lensDistortion.intensity.value = Mathf.Lerp(-20, 0, i / enterTime);
+                chromaticAberation.intensity.value = Mathf.Lerp(0.1f, 0, i / enterTime);
 
                 yield return null;
             }
 
-            CarController.instance.travelSpeedAcceleration = defaultCarAcceleration;
+            //CarController.instance.travelSpeedAcceleration = defaultCarAcceleration;
         }
 
         CarController.instance.isUnderEffect = false;

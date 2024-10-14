@@ -20,14 +20,21 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
 
     public AnimationHandlerScript animHandleScript;
 
+    public Transform spawnPoint;
+    public Transform offPoint;
+
     // sleepiness variables 
     public float sleepStatus = 100; // 100 = awake, 0 = asleep
     public float sleepDrainRate; // the rate that you get sleepy without DRINKING coffee. You will continue to get sleepy while filling the coffee cup. 
 
     public Vector3 startPosition;
+
+    private AudioSource _audioSource;
     void Awake()
     {
         startPosition = transform.position;
+
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void OnEnable()
@@ -66,6 +73,8 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
             coffeeLevel += coffeeGainPerParticle; // Adjust this to change how quickly the pot fills
            // Debug.Log("Coffee Level: " + coffeeLevel);
             coffeeMeter.value = coffeeLevel;
+
+            _audioSource.Play();
             
         }
 
@@ -73,6 +82,8 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
         {
             // if you fill the coffeee cup , call the drinking coffee logic here 
             animHandleScript.TriggerCoffeeAnim();
+
+            transform.position = offPoint.position;
             
             //EmptyCoffee();
         }
@@ -88,6 +99,8 @@ public class CoffeePot : MonoBehaviour  // this script is attached to the coffee
         coffeeMeter.value = coffeeLevel;
 
         car.maxSpeed += speedIncrease;
+
+        transform.position = spawnPoint.position;
     }
 
     public  void ManageSleepStatus() //this function is set to repeat in Start

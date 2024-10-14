@@ -18,6 +18,10 @@ public class CarCollision : MonoBehaviour
 
     private CarSoundManager _carSound;
 
+    private bool canBeHit;
+
+    public float hitCoolDown;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -25,12 +29,16 @@ public class CarCollision : MonoBehaviour
         _carSound = GetComponent<CarSoundManager>();
 
         _coffeePot = FindObjectOfType<CoffeePot>().GetComponent<CoffeePot>();
+
+        canBeHit = true;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         print(collision.collider.gameObject.name);
 
+        if(canBeHit)
+        {
         if (collision.collider.gameObject != _lastCollidedObject && (collision.collider.CompareTag("Obstacle") || collision.collider.CompareTag("Wall")))
         {
             _carController.potRB.AddExplosionForce(cupPropulsionForce * 1000, _carController.awfulyHotCoffeePot.position - Vector3.down*2, 10, 40);
@@ -53,6 +61,18 @@ public class CarCollision : MonoBehaviour
             }
 
             _carSound.PlayCrashEffect();
+
+            StartCoroutine("hitCoolDownTimer");
         }
+        }
+    }
+
+    IEnumerator hitCoolDownTimer()
+    {
+        canBeHit = false;
+        
+        yield return new WaitForSeconds(hitCoolDown);
+
+        canBeHit = true;
     }
 }
