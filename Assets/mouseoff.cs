@@ -8,6 +8,8 @@ public class mouseoff : MonoBehaviour
     public bool mouseturnoff = true;
     public Button restartButton;
 
+    public float initTime;
+
     void Start()
     {
         if(mouseturnoff)
@@ -20,12 +22,14 @@ public class mouseoff : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         }
+
+        initTime = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Submit"))
+        if (Input.GetButtonDown("Submit") || Time.time >= initTime+30)
         {
             restartButton.onClick.Invoke();
         }
