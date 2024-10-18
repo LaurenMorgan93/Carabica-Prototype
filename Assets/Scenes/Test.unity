@@ -3123,6 +3123,7 @@ MonoBehaviour:
   isUnderEffect: 0
   pSForce: {fileID: 1976240351}
   particleForceIntensity: 20
+  coffeeSpeed: 5
 --- !u!114 &2146374715
 MonoBehaviour:
   m_ObjectHideFlags: 0

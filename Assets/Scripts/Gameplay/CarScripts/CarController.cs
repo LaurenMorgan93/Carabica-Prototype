@@ -36,6 +36,7 @@ public class CarController : MonoBehaviour
     public ParticleSystemForceField pSForce;
 
     public float particleForceIntensity;
+    public float coffeeSpeed;
 
     private void Awake()
     {
@@ -89,7 +90,7 @@ public class CarController : MonoBehaviour
         //pourPot.eulerAngles = new Vector3(0, 0, Mathf.Clamp(0 + mousePositionDelta.x, -30, 30));
         //potParticles.eulerAngles = new Vector3(0, 0, Mathf.Clamp(potParticles.eulerAngles.z + mousePositionDelta.x/50, -30, 30));
 
-        pourPot.localPosition = new Vector3(Mathf.Clamp(pourPot.localPosition.x + mousePositionDelta.x/100, maxSides.x, maxSides.y), pourPot.localPosition.y, 0);
+        pourPot.localPosition = new Vector3(Mathf.Clamp(pourPot.localPosition.x + Input.GetAxisRaw("HorizontalR")*coffeeSpeed/100, maxSides.x, maxSides.y), pourPot.localPosition.y, 0);
 
         //awfulyHotCoffeePot.eulerAngles = new Vector3(0, 0, Mathf.Lerp(0, Input.GetAxisRaw("Horizontal") * 50, Time.deltaTime * awfulyHotCoffeePotSpeed));
 

@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class mouseoff : MonoBehaviour
 {
     public bool mouseturnoff = true;
+    public Button restartButton;
+
     void Start()
     {
         if(mouseturnoff)
@@ -22,6 +25,9 @@ public class mouseoff : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Submit"))
+        {
+            restartButton.onClick.Invoke();
+        }
     }
 }

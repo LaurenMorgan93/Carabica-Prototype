@@ -645,8 +645,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4041838768713977682, guid: b06a1d6f2ea62894dbfbc2bbf919bc93, type: 3}
       propertyPath: mouseturnoff
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4041838768713977682, guid: b06a1d6f2ea62894dbfbc2bbf919bc93, type: 3}
+      propertyPath: restartButton
+      value: 
+      objectReference: {fileID: 300376702}
     - target: {fileID: 5712847764327956530, guid: b06a1d6f2ea62894dbfbc2bbf919bc93, type: 3}
       propertyPath: m_Name
       value: MouseControl
