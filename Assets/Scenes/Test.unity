@@ -504,6 +504,10 @@ PrefabInstance:
       propertyPath: sleepDrainRate
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 5635274902667096615, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
+      propertyPath: coffeeGainPerParticle
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5877190041482558349, guid: bceb6bc9389dd444ab9fd7d5dbc3ec64, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.21
