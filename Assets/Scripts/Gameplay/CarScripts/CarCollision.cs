@@ -28,7 +28,7 @@ public class CarCollision : MonoBehaviour
         _carController = GetComponent<CarController>();
         _carSound = GetComponent<CarSoundManager>();
 
-        _coffeePot = FindObjectOfType<CoffeePot>().GetComponent<CoffeePot>();
+        _coffeePot = FindObjectOfType<CoffeePot>(true).GetComponent<CoffeePot>();
 
         canBeHit = true;
     }

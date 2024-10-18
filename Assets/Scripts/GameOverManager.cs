@@ -9,11 +9,18 @@ public class GameOverManager : MonoBehaviour
     // this script updates the game over screen 
     public TextMeshProUGUI flavourText;
     public TextMeshProUGUI distanceText;
+    public TextMeshProUGUI restartText;
+
+
+    public float initTime;
+
     void Start()
     {
    
         UpdateGameOverScreen();
 
+
+        initTime = Time.time;
     }
 
     public void UpdateGameOverScreen()
@@ -27,9 +34,19 @@ public class GameOverManager : MonoBehaviour
         flavourText.text = "You crashed your car!"; 
     }
 
+    public void Update()
+    {
+        if (Input.GetButtonDown("Submit") || Time.time >= initTime + 30)
+        {
+            GetComponent<SceneChanger>().loadSceneOnClick("Test");
+        }
 
-    
-    
- 
+        distanceText.fontSize = Mathf.Abs(Mathf.Sin(Time.time)*5)+70;
+        restartText.fontSize = Mathf.Abs(Mathf.Sin(Time.time) * 5) + 70;
+
+        distanceText.transform.eulerAngles = new Vector3(0, 0, Mathf.Sin(Time.time));
+        restartText.transform.eulerAngles = new Vector3(0, 0, Mathf.Sin(Time.time));
+
+    }
 
 }

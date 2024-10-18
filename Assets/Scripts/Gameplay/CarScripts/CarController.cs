@@ -57,7 +57,7 @@ public class CarController : MonoBehaviour
         potRB.AddForce(Random.Range(randomForceRange.x, randomForceRange.y) * awfulyHotCoffeePot.right * Input.GetAxisRaw("Horizontal") * 1.5f, ForceMode.Impulse);
         potRB.AddForce(Random.Range(randomForceRange.x/4, randomForceRange.y/4) * awfulyHotCoffeePot.forward * -Mathf.Abs( Input.GetAxisRaw("Horizontal")), ForceMode.Impulse);
 
-        print(Input.GetAxisRaw("Horizontal"));
+        //print(Input.GetAxisRaw("Horizontal"));
 
         pSForce.directionX = Input.GetAxisRaw("Horizontal") * particleForceIntensity;
 
@@ -70,30 +70,36 @@ public class CarController : MonoBehaviour
     private void Start()
     {
         mousePositionDelta = Input.mousePosition;
+
+        travelSpeed = 0;
     }
 
     private void Update()
     {
-        if (maxSpeed > travelSpeed)
+        if (InitialiseGame.isInitialised)
         {
-            travelSpeed += travelSpeedAcceleration * Time.deltaTime;
+            if (maxSpeed > travelSpeed)
+            {
+                travelSpeed += travelSpeedAcceleration * Time.deltaTime;
+            }
+            else if (travelSpeed + speedDecelGap > maxSpeed)
+            {
+                travelSpeed -= decelarationRate * Time.deltaTime;
+            }
+            mousePositionDelta = Input.mousePosition - lastMousePos;
+
+            transform.eulerAngles = new Vector3(0, Mathf.Lerp(transform.eulerAngles.y, transform.eulerAngles.y + maxRotation * Input.GetAxisRaw("Horizontal"), turnSpeed * Time.deltaTime * Mathf.Abs(Input.GetAxisRaw("Horizontal"))), 0);
+
+            scoreManager.SpeedMultiplier = travelSpeed / 10;
+
+            //pourPot.eulerAngles = new Vector3(0, 0, Mathf.Clamp(0 + mousePositionDelta.x, -30, 30));
+            //potParticles.eulerAngles = new Vector3(0, 0, Mathf.Clamp(potParticles.eulerAngles.z + mousePositionDelta.x/50, -30, 30));
+
+            pourPot.localPosition = new Vector3(Mathf.Clamp(pourPot.localPosition.x + Input.GetAxisRaw("HorizontalR") * coffeeSpeed / 100, maxSides.x, maxSides.y), pourPot.localPosition.y, 0);
+
+            //awfulyHotCoffeePot.eulerAngles = new Vector3(0, 0, Mathf.Lerp(0, Input.GetAxisRaw("Horizontal") * 50, Time.deltaTime * awfulyHotCoffeePotSpeed));
+
+            lastMousePos = Input.mousePosition;
         }
-        else if (travelSpeed + speedDecelGap >  maxSpeed)
-        {
-            travelSpeed -= decelarationRate * Time.deltaTime;
-        }
-        mousePositionDelta = Input.mousePosition - lastMousePos;
-
-        
-        scoreManager.SpeedMultiplier = travelSpeed/10;
-
-        //pourPot.eulerAngles = new Vector3(0, 0, Mathf.Clamp(0 + mousePositionDelta.x, -30, 30));
-        //potParticles.eulerAngles = new Vector3(0, 0, Mathf.Clamp(potParticles.eulerAngles.z + mousePositionDelta.x/50, -30, 30));
-
-        pourPot.localPosition = new Vector3(Mathf.Clamp(pourPot.localPosition.x + Input.GetAxisRaw("HorizontalR")*coffeeSpeed/100, maxSides.x, maxSides.y), pourPot.localPosition.y, 0);
-
-        //awfulyHotCoffeePot.eulerAngles = new Vector3(0, 0, Mathf.Lerp(0, Input.GetAxisRaw("Horizontal") * 50, Time.deltaTime * awfulyHotCoffeePotSpeed));
-
-        lastMousePos = Input.mousePosition;
     }
 }
